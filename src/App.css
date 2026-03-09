@@ -1,0 +1,347 @@
+:root {
+  --page-max-width-mobile: 360px;
+  --page-max-width-tablet: 520px;
+  --page-max-width-desktop: 640px;
+
+  --page-padding-mobile: 16px;
+  --page-padding-tablet: 24px;
+  --page-padding-desktop: 40px;
+
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: Inter, Arial, sans-serif;
+
+  background: #f3f4f6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+
+  padding: 20px var(--page-padding-mobile);
+}
+
+.wizard {
+  flex: 1;
+
+  width: 100%;
+  max-width: var(--page-max-width-mobile);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.step1,
+.step2,
+.step3,
+.form-card {
+
+  width: 100%;
+  max-width: var(--page-max-width-mobile);
+
+  margin: 20px auto 80px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 20px 16px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+}
+
+.form-group {
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+label {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  margin-bottom: 6px;
+
+  color: #333;
+}
+
+input,
+select,
+textarea {
+
+  width: 100%;
+
+  height: 44px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  background: #f3f4f6;
+
+  padding: 0 12px;
+
+  font-size: 14px;
+
+  outline: none;
+
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+  background: #eef0f1;
+
+  box-shadow: 0 0 0 3px rgba(17,24,39,0.04);
+
+}
+
+.navigation {
+
+  margin-top: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dots span {
+
+  width: 18px;
+  height: 4px;
+
+  border-radius: 4px;
+
+  background: #e5e7eb;
+
+}
+
+.dots span.active {
+  background: #111827;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+button.next,
+button.back {
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.footer,
+.bottom-bar {
+
+  position: fixed;
+
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+
+  width: 100%;
+  max-width: var(--page-max-width-mobile);
+
+  background: #ffffff;
+
+  border-radius: 16px 16px 0 0;
+
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.06);
+
+  padding: 12px 16px calc(12px + var(--safe-bottom));
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  z-index: 50;
+
+}
+
+.bottom-circle {
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+
+}
+
+.bottom-info {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+}
+
+.bottom-info .date {
+
+  font-size: 13px;
+  font-weight: 600;
+
+}
+
+.bottom-info .time {
+
+  font-size: 12px;
+  color: #6b7280;
+
+}
+
+.bottom-button {
+
+  height: 40px;
+
+  padding: 0 16px;
+
+  border-radius: 22px;
+
+  background: #111;
+
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+
+}
+
+@media (max-width: 360px) {
+
+  .step1,
+  .step2,
+  .step3 {
+    padding: 18px 14px;
+  }
+
+  input,
+  select {
+    height: 42px;
+  }
+
+}
+
+@media (min-width: 768px) {
+
+  #app {
+    padding: 32px var(--page-padding-tablet);
+  }
+
+  .wizard {
+    max-width: var(--page-max-width-tablet);
+  }
+
+  .step1,
+  .step2,
+  .step3,
+  .form-card {
+
+    max-width: var(--page-max-width-tablet);
+
+    padding: 24px 22px;
+
+  }
+
+  .bottom-bar {
+    max-width: var(--page-max-width-tablet);
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  #app {
+    padding: 40px var(--page-padding-desktop);
+  }
+
+  .wizard {
+    max-width: var(--page-max-width-desktop);
+  }
+
+  .step1,
+  .step2,
+  .step3,
+  .form-card {
+
+    max-width: var(--page-max-width-desktop);
+
+    padding: 28px 26px;
+
+  }
+
+  .bottom-bar {
+    max-width: var(--page-max-width-desktop);
+  }
+
+}
